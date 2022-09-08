@@ -7,7 +7,7 @@ namespace ChessPiecesPhoneNumber
     public class Program
     {
         static void Main(string[] args)
-        {
+        {            
             Console.WriteLine("Hello World!");
 
             Random random = new Random();
@@ -101,10 +101,38 @@ namespace ChessPiecesPhoneNumber
 
         static string RockNumber(char[,] keypad, int startRow, int startCol)
         {
+            Random random = new Random();
             var phoneNumber = new StringBuilder(keypad[startRow, startCol].ToString());
-            
+
             for (int i = 0; i < 6; i++)
             {
+                int row;
+                int col;
+                int op = random.Next(4);
+                if (op == 0)
+                {
+                    row = startRow > 0 ? random.Next(0, startRow) : random.Next(1, keypad.GetLength(0));
+                    phoneNumber.Append(keypad[row, startCol].ToString());
+                    startRow = row;
+                }
+                else if (op == 1)
+                {
+                    row = startRow < keypad.GetLength(0)-1 ? random.Next(startRow+1, keypad.GetLength(0)) : random.Next(0, keypad.GetLength(0)-1);
+                    phoneNumber.Append(keypad[row, startCol].ToString());
+                    startRow = row;
+                }
+                else if (op == 2)
+                {
+                    col = startCol > 0 ? random.Next(0, startCol) : random.Next(1, keypad.GetLength(1));
+                    phoneNumber.Append(keypad[startRow, col].ToString());
+                    startCol = col;
+                }
+                else if (op == 3)
+                {
+                    col = startCol < keypad.GetLength(1) - 1 ? random.Next(startCol + 1, keypad.GetLength(1)) : random.Next(0, keypad.GetLength(1) - 1);
+                    phoneNumber.Append(keypad[startRow, col].ToString());
+                    startCol = col;
+                }
 
             }
 
