@@ -141,11 +141,161 @@ namespace ChessPiecesPhoneNumber
 
         static string KnightNumber(char[,] keypad, int startRow, int startCol)
         {
+            Random random = new Random();
             var phoneNumber = new StringBuilder(keypad[startRow, startCol].ToString());
 
             for (int i = 0; i < 6; i++)
             {
+                int row;
+                int col;
+                int op = random.Next(4);
+                if (op == 0)
+                {
+                    if (startRow - 2 >= 0)
+                    {
+                        row = startRow - 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                    else if(startRow + 2 < keypad.GetLength(0))
+                    {
+                        row = startRow + 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                    else if (startCol - 2 >= 0)
+                    {
+                        col = startCol - 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                    else if (startCol + 2 < keypad.GetLength(1))
+                    {
+                        col = startCol + 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
 
+                    }
+                }
+                else if (op == 1)
+                {
+                    if (startRow + 2 < keypad.GetLength(0))
+                    {
+                        row = startRow + 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+
+                    }
+                    else if (startRow - 2 >= 0)
+                    {
+                        row = startRow - 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                    else if (startCol - 2 >= 0)
+                    {
+                        col = startCol - 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                    else if (startCol + 2 < keypad.GetLength(1))
+                    {
+                        col = startCol + 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+
+                    }
+                }
+                else if (op == 2)
+                {
+                    if (startCol - 2 >= 0)
+                    {
+                        col = startCol - 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                    else if (startCol + 2 < keypad.GetLength(1))
+                    {
+                        col = startCol + 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+
+                    }
+                    else if (startRow + 2 < keypad.GetLength(0))
+                    {
+                        row = startRow + 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+
+                    }
+                    else if (startRow - 2 >= 0)
+                    {
+                        row = startRow - 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                }
+                else if (op == 3)
+                {
+                    if (startCol + 2 < keypad.GetLength(1))
+                    {
+                        col = startCol + 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+
+                    }
+                    else if (startCol - 2 >= 0)
+                    {
+                        col = startCol - 2;
+                        row = startRow - 1 >= 0 ? startRow - 1 : startRow + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                    else if (startRow + 2 < keypad.GetLength(0))
+                    {
+                        row = startRow + 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+
+                    }
+                    else if (startRow - 2 >= 0)
+                    {
+                        row = startRow - 2;
+                        col = startCol - 1 >= 0 ? startCol - 1 : startCol + 1;
+                        phoneNumber.Append(keypad[row, col].ToString());
+                        startRow = row;
+                        startCol = col;
+                    }
+                }
             }
 
             return phoneNumber.ToString();
