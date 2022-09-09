@@ -313,19 +313,199 @@ namespace ChessPiecesPhoneNumber
                 int op = random.Next(4);
                 if (op == 0)
                 {
-                    
+                    if(startRow > 0)
+                    {
+                        if(startCol > 0)
+                        {
+                            int MinDiff = Min(startRow, startCol);
+                            int diff = random.Next(MinDiff+1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(startRow, keypad.GetLength(1)-1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol > 0)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0)-1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0)-1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
                 else if (op == 1)
                 {
-                    
+                    if (startRow > 0)
+                    {
+                        if (startCol < keypad.GetLength(1)-1)
+                        {
+                            int MinDiff = Min(startRow, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(startRow, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol < keypad.GetLength(1) - 1)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
                 else if (op == 2)
                 {
-                    
+                    if (startRow < keypad.GetLength(0)-1)
+                    {
+                        if (startCol > 0)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0)-startRow-1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - startRow - 1, keypad.GetLength(1)-startCol-1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol > 0)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
                 else if (op == 3)
                 {
-                   
+                    if (startRow < keypad.GetLength(0)-1)
+                    {
+                        if (startCol < keypad.GetLength(1) - 1)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0)-startRow-1, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - startRow - 1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol < keypad.GetLength(1) - 1)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
 
             }
@@ -371,19 +551,199 @@ namespace ChessPiecesPhoneNumber
                 //Bishop moves...
                 else if (op == 4)
                 {
-                    
+                    if (startRow > 0)
+                    {
+                        if (startCol > 0)
+                        {
+                            int MinDiff = Min(startRow, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(startRow, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol > 0)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
                 else if (op == 5)
                 {
-                    
+                    if (startRow > 0)
+                    {
+                        if (startCol < keypad.GetLength(1) - 1)
+                        {
+                            int MinDiff = Min(startRow, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(startRow, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol < keypad.GetLength(1) - 1)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
                 else if (op == 6)
                 {
-                    
+                    if (startRow < keypad.GetLength(0) - 1)
+                    {
+                        if (startCol > 0)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - startRow - 1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - startRow - 1, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol > 0)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
                 else if (op == 7)
                 {
-                    
+                    if (startRow < keypad.GetLength(0) - 1)
+                    {
+                        if (startCol < keypad.GetLength(1) - 1)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - startRow - 1, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - startRow - 1, startCol);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow + diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
+                    else
+                    {
+                        if (startCol < keypad.GetLength(1) - 1)
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - startCol - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol + diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                        else
+                        {
+                            int MinDiff = Min(keypad.GetLength(0) - 1, keypad.GetLength(1) - 1);
+                            int diff = random.Next(MinDiff + 1); if (diff == 0) diff += 1;
+                            row = startRow - diff;
+                            col = startCol - diff;
+                            phoneNumber.Append(keypad[row, col].ToString());
+                            startRow = row;
+                            startCol = col;
+                        }
+                    }
                 }
 
             }
@@ -472,7 +832,10 @@ namespace ChessPiecesPhoneNumber
             return true;
         }
 
-
+        static int Min(int a, int b)
+        {
+            return a < b ? a : b;
+        }
     }
 
     
