@@ -8,7 +8,9 @@ namespace ChessPiecesPhoneNumber
     {
         static void Main(string[] args)
         {            
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("=================================================");
+            Console.WriteLine("========== Hello World! Welcome to CLH ==========");
+            Console.WriteLine("=================================================");
 
             Random random = new Random();
             char[,] keypad = { { '1', '2', '3' }, { '4', '5', '6' }, { '7', '8', '9' }, { '*', '0', '#'} };
